@@ -8,7 +8,6 @@ import no.hvl.dat102.exception.EmptyCollectionException;
 import no.hvl.dat102.mengde.adt.MengdeADT;
 import no.hvl.dat102.mengde.kjedet.KjedetMengde;
 
-
 public class TabellMengde<T> implements MengdeADT<T> {
 	// ADT-en Mengde implementert som tabell
 	//
