@@ -36,8 +36,6 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		}
 	}
 
-
-	
 	@Override
 	public void leggTilAlle(MengdeADT<T> m2) {
 		Iterator<T> teller = m2.oppramser();
@@ -112,8 +110,6 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		return resultat;
 	}//
 
-	
-
 	@Override
 	public boolean inneholder(T element) {
 		boolean funnet = false;
@@ -185,8 +181,6 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		return begge;
 	}//
 
-
-
 	@Override
 	public MengdeADT<T> snitt(MengdeADT<T> m2) {
 		MengdeADT<T> snittM = new KjedetMengde<T>();
@@ -253,6 +247,14 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		antall++;
 	}
 
-
+	public String toString() {// For klassen KjedetMengde
+		String resultat = "";
+		LinearNode<T> aktuell = start;
+		while (aktuell != null) {
+			resultat += aktuell.getElement().toString() + "\t";
+			aktuell = aktuell.getNeste();
+		}
+		return resultat;
+	}
 
 }// class
