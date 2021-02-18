@@ -247,6 +247,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		antall++;
 	}
 
+	@Override
 	public String toString() {// For klassen KjedetMengde
 		String resultat = "";
 		LinearNode<T> aktuell = start;
