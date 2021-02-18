@@ -112,37 +112,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		return resultat;
 	}//
 
-	public T fjern2(T element) {
-
-		if (erTom()) {
-			throw new EmptyCollectionException("mengde");
-		}
-
-		T resultat = null;
-		LinearNode<T> forgjenger, aktuell;
-		if (element == start.getElement()) {
-			resultat = start.getElement();
-			start = start.getNeste();
-			antall--;
-		}
-
-		else {
-			forgjenger = start;
-			aktuell = forgjenger.getNeste();
-
-			for (int i = 2; i < antall && !(aktuell.getElement().equals(element)); i++) {
-				aktuell = aktuell.getNeste();
-				forgjenger = forgjenger.getNeste();
-			}
-			if ((aktuell.getElement().equals(element))) {
-				resultat = aktuell.getElement();
-				forgjenger.setNeste(aktuell.getNeste());
-				antall--;
-			}
-
-		}
-		return resultat;
-	}//
+	
 
 	@Override
 	public boolean inneholder(T element) {
@@ -215,19 +185,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		return begge;
 	}//
 
-	public MengdeADT<T> union2(MengdeADT<T> m2) {
-		MengdeADT<T> begge = new KjedetMengde<T>();
-		LinearNode<T> aktuell = start;
 
-		while (aktuell != null) {
-			begge.leggTil(aktuell.getElement());
-			aktuell = aktuell.getNeste(); // this-mengden
-		} // while
-
-		begge.leggTilAlle(m2);
-		return begge;
-
-	}//
 
 	@Override
 	public MengdeADT<T> snitt(MengdeADT<T> m2) {
@@ -295,14 +253,6 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		antall++;
 	}
 
-	public void show() {
-		System.out.print("{");
-		LinearNode<T> node = start;
-		while (node != null) {
-			System.out.print(node.getElement() + " ");
-			node = node.getNeste();
-		}
-		System.out.println("}");
-	}
+
 
 }// class

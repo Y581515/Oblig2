@@ -180,18 +180,7 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
 	}//
 
-	public MengdeADT<T> union2(MengdeADT<T> m2) {
-		TabellMengde<T> begge = new TabellMengde<T>();
-		for (int i = 0; i < antall; i++) {
-			begge.leggTil(tab[i]);
-		}
-		Iterator<T> teller = m2.oppramser();
 
-		begge.leggTilAlle(m2);
-
-		return begge;
-
-	}//
 
 	@Override
 	public MengdeADT<T> snitt(MengdeADT<T> m2) {
@@ -259,12 +248,5 @@ public class TabellMengde<T> implements MengdeADT<T> {
 		antall++;
 	}
 
-	public void show() {
-		System.out.print("{");
-		for (int i = 0; i < antall; i++) {
-			System.out.print(tab[i] + "  ");
-		}
-		System.out.println("}");
-	}
 
 }// class
