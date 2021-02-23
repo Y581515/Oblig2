@@ -23,7 +23,7 @@ public class Medlem {
 		this.navn = navn;
 	}
 
-	public MengdeADT<Hobby> getHobbyer() {
+	public MengdeADT<Hobby> getHobbyer() { 
 		return hobbyer;
 	}
 
