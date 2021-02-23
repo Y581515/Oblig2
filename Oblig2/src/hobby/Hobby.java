@@ -21,6 +21,16 @@ public class Hobby {
 	}
 
 	public boolean equals(Object hobby2) {
+		
+		if (this == hobby2) {
+			return true;
+		}
+		if (hobby2 == null) {
+			return false;
+		}
+		if (getClass() != hobby2.getClass()) {
+			return false;
+		}
 
 		Hobby hobbyDenAndre = (Hobby) hobby2;
 		return (hobbyNavn.equals(hobbyDenAndre.getHobbyNavn()));
