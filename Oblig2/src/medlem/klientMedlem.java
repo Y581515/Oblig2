@@ -30,20 +30,22 @@ public class klientMedlem {
 
 		} // while
 
-		System.out.println(hobbyer1.toString());
+		
 
 		System.out.println("Oppgi en Navn");
 		streng = tastatur.nextLine();
 		String navn = streng;
 
 		System.out.println("Oppgi statusIndeks");
-		tastatur.next();
+		
 		int sI = tastatur.nextInt();
 
 		medlem1.setNavn(navn);
 		medlem1.setStatusIndeks(sI);
 		medlem1.setHobbyer(hobbyer1);
 
+
+		System.out.println("hobbyene lagt inn til medlem"+"\t"+hobbyer1.toString());
 	}
 
 }
