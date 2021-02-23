@@ -58,7 +58,7 @@ public class Ordliste {
 		// Lager snittet av de to ordlistene
 		MengdeADT<String> ordListeFelles = new KjedetMengde<String>();
 
-		ordListeFelles = (KjedetMengde<String>) ordListe1.snitt(ordListe2);
+		ordListeFelles = ordListe1.snitt(ordListe2);
 
 		System.out.println("\nUtskrift av snittet av begge ordlistene");
 		hentStreng = "";
