@@ -45,7 +45,7 @@ public class klientMedlem {
 		medlem1.setHobbyer(hobbyer1);
 
 
-		System.out.println("hobbyene lagt inn til medlem"+"\t"+hobbyer1.toString());
+		System.out.println("medlem: "+navn+"\nhobbyene: "+hobbyer1.toString()+"\nStatusIntekd: "+sI);
 	}
 
 }
