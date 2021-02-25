@@ -54,11 +54,11 @@ public class klientMedlem {
 
 		} // while
 
-		Medlem medlem1 = new Medlem("Medlem1", hobbyer1, 1);
-		Medlem medlem2 = new Medlem("Medlem2", hobbyer2, 2);
-		Medlem medlem3 = new Medlem("Medlem3", hobbyer3, 3);
-		Medlem medlem4 = new Medlem("Medlem4", hobbyer4, 4);
-		Medlem medlem5 = new Medlem("Medlem5", hobbyer5, 5);
+		Medlem medlem1 = new Medlem("Medlem1", hobbyer1, -1);
+		Medlem medlem2 = new Medlem("Medlem2", hobbyer2, -1);
+		Medlem medlem3 = new Medlem("Medlem3", hobbyer3, -1);
+		Medlem medlem4 = new Medlem("Medlem4", hobbyer4, -1);
+		Medlem medlem5 = new Medlem("Medlem5", hobbyer5, -1);
 
 		System.out.println(String.format("%-4s    :Indeks nummer %-4d   :Hobbyer %-4s   ", medlem1.getNavn(),
 				medlem1.getStatusIndeks(), medlem1.getHobbyer().toString()));

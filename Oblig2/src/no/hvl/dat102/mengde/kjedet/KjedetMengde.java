@@ -252,7 +252,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		String resultat = "(";
 		LinearNode<T> aktuell = start;
 		while (aktuell != null) {
-			resultat += String.format("%s, ", aktuell.getElement().toString());
+			resultat += String.format("%s,", aktuell.getElement().toString());
 			aktuell = aktuell.getNeste();
 		}
 		resultat = resultat.substring(0, resultat.length() - 1); // fjerner siste komma
