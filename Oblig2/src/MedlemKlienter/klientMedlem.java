@@ -1,6 +1,7 @@
-package medlem;
+package MedlemKlienter;
 
 import hobby.Hobby;
+import medlem.Medlem;
 import no.hvl.dat102.mengde.adt.MengdeADT;
 import no.hvl.dat102.mengde.kjedet.KjedetMengde;
 
