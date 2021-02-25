@@ -1,5 +1,7 @@
 package datakontakt;
 
+import java.util.Arrays;
+
 import medlem.Medlem;
 
 public class Datakontakt {
@@ -7,13 +9,29 @@ public class Datakontakt {
 	private Medlem[] medlemer;
 	private int antall;
 
+	public Datakontakt(int Max) {
+		this.medlemer = new Medlem[Max];
+		antall = 0;
+	}
+
 	public Datakontakt() {
 		this(MAX);
 	}
 
-	public Datakontakt(int Max) {
-		this.medlemer = new Medlem[Max];
-		antall = 0;
+	public Medlem[] getMedlemer() {
+		return medlemer;
+	}
+
+	public void setMedlemer(Medlem[] medlemer) {
+		this.medlemer = medlemer;
+	}
+
+	public int getAntall() {
+		return antall;
+	}
+
+	public void setAntall(int antall) {
+		this.antall = antall;
 	}
 
 	public void leggTilMedlem(Medlem person) {
@@ -28,7 +46,7 @@ public class Datakontakt {
 
 		int Indeks = -1;
 
-		while (pos < medlemer.length && !funnet) {
+		while (pos < antall && !funnet) {
 			if (medlemer[pos].getNavn().equals(medlemsnavn)) {
 				Indeks = pos;
 				funnet = true;
@@ -47,8 +65,9 @@ public class Datakontakt {
 		int indeks = finnMedlemsIndeks(medlemsnavn);
 		if (indeks < 0) {
 			return indeks;
+		
 		} else {
-			for (int i = 0; i < medlemer.length; i++) {
+			for (int i = 0; i < antall; i++) {
 				if (medlemer[indeks].passerTil(medlemer[i]) && indeks != i
 						&& medlemer[indeks].getStatusIndeks() == -1) {
 					medlemer[i].setStatusIndeks(indeks);
