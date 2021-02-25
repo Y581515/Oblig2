@@ -10,9 +10,14 @@ public class Medlem {
 	private int statusIndeks;
 
 	public Medlem() {
-		navn = null;
-		hobbyer = new KjedetMengde<Hobby>();
-		statusIndeks = 0;
+		this("", null, 0);
+	}
+
+	public Medlem(String navn, MengdeADT<Hobby> hobbyer, int statusIndeks) {
+
+		this.navn = navn;
+		this.hobbyer = hobbyer;
+		this.statusIndeks = statusIndeks;
 	}
 
 	public String getNavn() {
@@ -23,7 +28,7 @@ public class Medlem {
 		this.navn = navn;
 	}
 
-	public MengdeADT<Hobby> getHobbyer() { 
+	public MengdeADT<Hobby> getHobbyer() {
 		return hobbyer;
 	}
 

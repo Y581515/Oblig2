@@ -17,11 +17,11 @@ public class Hobby {
 	}
 
 	public String toString() {
-		return new String(getHobbyNavn());
+		return "<" + hobbyNavn + ">";
 	}
 
 	public boolean equals(Object hobby2) {
-		
+
 		if (this == hobby2) {
 			return true;
 		}

@@ -249,12 +249,14 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 
 	@Override
 	public String toString() {// For klassen KjedetMengde
-		String resultat = "";
+		String resultat = "(";
 		LinearNode<T> aktuell = start;
 		while (aktuell != null) {
-			resultat += aktuell.getElement().toString() + "\t";
+			resultat += String.format("%s, ", aktuell.getElement().toString());
 			aktuell = aktuell.getNeste();
 		}
+		resultat = resultat.substring(0, resultat.length() - 1); // fjerner siste komma
+		resultat += ")";
 		return resultat;
 	}
 
