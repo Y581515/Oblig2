@@ -72,34 +72,51 @@ public class TabellMengde<T> implements MengdeADT<T> {
 	public T fjern(T element) {
 		// TODO
 		// Søker etter og fjerner element. Returnerer null-ref ved ikke-funn
-
-		if (erTom())
-			throw new EmptyCollectionException("mengde");
-
-		boolean funnet = false;
 		T svar = null;
-		for (int i = 0; (i < antall) && (!funnet); i++) {
-			if (tab[i].equals(element)) {
-				svar = tab[i];
-				tab[i] = tab[antall - 1];
-				tab[antall - 1] = null;
-				antall--;
-				funnet = true;
 
-			}
+		if (erTom()) {
+			throw new EmptyCollectionException("mengde");
 		}
+//		boolean funnet = false;
+//		T svar = null;
+//		for (int i = 0; (i < antall) && (!funnet); i++) {
+//			if (tab[i].equals(element)) {
+//				svar = tab[i];
+//				tab[i] = tab[antall - 1];
+//				tab[antall - 1] = null;
+//				antall--;
+//				funnet = true;
+//
+//			}
+//		}
+		int i = 0;
+		while (i < antall && !tab[i].equals(element)) {
+			i++;
+		}
+		if (i < antall) {
+			svar = tab[i];
+			tab[i] = tab[antall - 1];
+			tab[antall - 1] = null;
+			antall--;
+		}
+
 		return svar;
 	}
 
 	@Override
 	public boolean inneholder(T element) {
-		boolean funnet = false;
-		for (int i = 0; (i < antall) && (!funnet); i++) {
-			if (tab[i].equals(element)) {
-				funnet = true;
-			}
+//		boolean funnet = false;
+//		for (int i = 0; (i < antall) && (!funnet); i++) {
+//			if (tab[i].equals(element)) {
+//				funnet = true;
+//			}
+//		}
+
+		int i = 0;
+		while (i < antall && !tab[i].equals(element)) {
+			i++;
 		}
-		return (funnet);
+		return (i < antall);
 	}
 
 	/*
@@ -132,7 +149,6 @@ public class TabellMengde<T> implements MengdeADT<T> {
 			if (this.antall != m2.antall()) {
 				likeMengder = false;
 			} else {
-				likeMengder = true;
 				Iterator<T> teller = m2.oppramser();
 				while (teller.hasNext() && likeMengder) {
 					T element = teller.next();
@@ -181,14 +197,14 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
 	@Override
 	public MengdeADT<T> snitt(MengdeADT<T> m2) {
-		MengdeADT<T> snittM = new TabellMengde<T>();
+		TabellMengde<T> snittM = new TabellMengde<T>();
 		Iterator<T> teller = m2.oppramser();
 		T element = null;
 
 		while (teller.hasNext()) {
 			element = teller.next();
 			if (this.inneholder(element)) {
-				((TabellMengde<T>) snittM).settInn(element);
+				snittM.settInn(element);
 			}
 		}
 		return snittM;
@@ -222,9 +238,9 @@ public class TabellMengde<T> implements MengdeADT<T> {
 		Iterator<T> teller = m2.oppramser();
 		T element = null;
 
-		while (teller.hasNext()) {
+		while (teller.hasNext() && (erUnderMengde)) {
 			element = teller.next();
-			if (!(this.inneholder(element)) && (erUnderMengde)) {
+			if (!(this.inneholder(element))) {
 				erUnderMengde = false;
 			}
 		}

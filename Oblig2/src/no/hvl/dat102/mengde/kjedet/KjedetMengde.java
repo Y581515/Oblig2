@@ -80,7 +80,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		}
 
 		T resultat = null;
-		boolean funnet = false;
+//		boolean funnet = false;
 		LinearNode<T> forgjenger, aktuell;
 		if (element == start.getElement()) {
 			resultat = start.getElement();
@@ -92,18 +92,30 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 			forgjenger = start;
 			aktuell = forgjenger.getNeste();
 
-			for (int i = 2; i <= antall && (!funnet); i++) {
-				if (aktuell.getElement().equals(element)) {
-					funnet = true;
-				} else {
-					forgjenger = forgjenger.getNeste();
-					aktuell = aktuell.getNeste();
-				}
+//			for (int i = 2; i <= antall && (!funnet); i++) {
+//				if (aktuell.getElement().equals(element)) {
+//					funnet = true;
+//				} else {
+//					forgjenger = forgjenger.getNeste();
+//					aktuell = aktuell.getNeste();
+//				}
+//			}
+//			if (funnet) {
+//				resultat = aktuell.getElement();
+//				forgjenger.setNeste(aktuell.getNeste());
+//				antall--;
+//			}
+
+			while (aktuell != null && !(aktuell.getElement().equals(element))) {
+				forgjenger = aktuell;
+				aktuell = aktuell.getNeste();
+
 			}
-			if (funnet) {
+			if (aktuell != null) {
 				resultat = aktuell.getElement();
 				forgjenger.setNeste(aktuell.getNeste());
 				antall--;
+
 			}
 
 		}
@@ -112,16 +124,20 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 
 	@Override
 	public boolean inneholder(T element) {
-		boolean funnet = false;
+//		boolean funnet = false;
 		LinearNode<T> aktuell = start;
-		for (int soek = 0; soek < antall && !funnet; soek++) {
-			if (aktuell.getElement().equals(element)) {
-				funnet = true;
-			} else {
-				aktuell = aktuell.getNeste();
-			}
+//		for (int soek = 0; soek < antall && !funnet; soek++) {
+//			if (aktuell.getElement().equals(element)) {
+//				funnet = true;
+//			} else {
+//				aktuell = aktuell.getNeste();
+//			}
+//		}
+
+		while (aktuell != null && !(aktuell.getElement().equals(element))) {
+			aktuell = aktuell.getNeste();
 		}
-		return funnet;
+		return (aktuell != null);
 	}
 
 	@Override
@@ -140,7 +156,6 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 			if (this.antall != m2.antall()) {
 				likeMengder = false;
 			} else {
-				likeMengder = true;
 				Iterator<T> teller = m2.oppramser();
 				while (teller.hasNext() && likeMengder) {
 					T element = teller.next();

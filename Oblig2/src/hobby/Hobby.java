@@ -20,6 +20,7 @@ public class Hobby {
 		return "<" + hobbyNavn + ">";
 	}
 
+	@Override
 	public boolean equals(Object hobby2) {
 
 		if (this == hobby2) {

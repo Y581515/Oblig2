@@ -34,28 +34,34 @@ public class Datakontakt {
 		this.antall = antall;
 	}
 
-	public void leggTilMedlem(Medlem person) {
-		medlemer[antall] = person;
+	public void leggTilMedlem(Medlem medlem) {
+		medlemer[antall] = medlem;
 		antall++;
 
 	}
 
 	public int finnMedlemsIndeks(String medlemsnavn) {
-		boolean funnet = false;
-		int pos = 0;
+//		boolean funnet = false;
+//		int pos = 0;
 
 		int Indeks = -1;
 
-		while (pos < antall && !funnet) {
-			if (medlemer[pos].getNavn().equals(medlemsnavn)) {
-				Indeks = pos;
-				funnet = true;
-			} else {
-				pos++;
-			}
-
+//		while (pos < antall && !funnet) {
+//			if (medlemer[pos].getNavn().equals(medlemsnavn)) {
+//				Indeks = pos;
+//				funnet = true;
+//			} else {
+//				pos++;
+//			}
+//
+//		}
+		int i = 0;
+		while (i < antall && !(medlemer[i].getNavn().equals(medlemsnavn))) {
+			i++;
 		}
-
+		if (i < antall) {
+			Indeks = i;
+		}
 		return Indeks;
 
 	}
@@ -65,7 +71,7 @@ public class Datakontakt {
 		int indeks = finnMedlemsIndeks(medlemsnavn);
 		if (indeks < 0) {
 			return indeks;
-		
+
 		} else {
 			for (int i = 0; i < antall; i++) {
 				if (medlemer[indeks].passerTil(medlemer[i]) && indeks != i
